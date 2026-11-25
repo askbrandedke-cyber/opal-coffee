@@ -130,7 +130,7 @@ export function siteUrl() {
   if (explicit) return explicit.replace(/\/$/, "");
   const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL;
   if (vercel) return `https://${vercel}`;
-  return "http://localhost:3000";
+  return process.env.NODE_ENV === "production" ? "https://opal-coffee.vercel.app" : "http://localhost:3000";
 }
 
 export const navigation = [
